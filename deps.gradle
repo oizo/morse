@@ -1,0 +1,28 @@
+// define dependency map
+
+def versions = [
+    support: "27.0.2",
+    constraint: "1.0.2",
+    junit: "4.12",
+    runner: "1.0.1",
+    espresso: "3.0.1",
+    markhor: "1.0.8",
+]
+
+def support = [
+        appcompat: "com.android.support:appcompat-v7:$versions.support",
+        design: "com.android.support:design:$versions.support",
+        constraint: "com.android.support.constraint:constraint-layout:$versions.constraint",
+]
+
+def test = [
+        junit: "junit:junit:$versions.junit",
+        runner: "com.android.support.test:runner:$versions.runner",
+        espresso: "com.android.support.test.espresso:espresso-core:$versions.espresso",
+]
+
+// apply all dependencies to ext
+ext.deps = [:]
+ext.deps.support = support
+ext.deps.test = test
+ext.deps.markhor = "com.shopgun.android:utils:$versions.markhor"
