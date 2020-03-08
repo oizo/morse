@@ -7,6 +7,8 @@ def versions = [
     runner: "1.0.1",
     espresso: "3.0.1",
     markhor: "1.0.8",
+    mockito: "3.3.0",
+    mockito_kotlin: "2.2.0",
 ]
 
 def support = [
@@ -19,6 +21,9 @@ def test = [
         junit: "junit:junit:$versions.junit",
         runner: "com.android.support.test:runner:$versions.runner",
         espresso: "com.android.support.test.espresso:espresso-core:$versions.espresso",
+        mockito_core: "org.mockito:mockito-core:$versions.mockito",
+        mockito_inline: "org.mockito:mockito-inline:$versions.mockito",
+        mockito_kotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito_kotlin",
 ]
 
 // apply all dependencies to ext
