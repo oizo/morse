@@ -80,7 +80,7 @@ class MorseTimerImplTest {
         assertEquals(MorseSymbol.DASH, sut.deactivate())
 
         // Wait long enough for Word on activate event
-        Thread.sleep(mockTimeUnit * 7)
+        Thread.sleep(mockTimeUnit * 8)
         assertEquals(MorseSymbol.WORD, sut.activate())
 
         assertEquals(MorseSymbol.DOT, sut.deactivate())

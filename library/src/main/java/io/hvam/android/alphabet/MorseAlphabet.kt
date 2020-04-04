@@ -5,7 +5,7 @@ import java.util.*
 
 class MorseAlphabet: Alphabet {
 
-    private val alphabet = listOf(
+    private val alphabet = mapOf(
             // Letters
             "a" to "·−",
             "b" to "−···",
@@ -85,21 +85,12 @@ class MorseAlphabet: Alphabet {
 
     override fun encode(character: String): String {
         val tmp = character.toLowerCase(Locale.US)
-        alphabet.forEach { p ->
-            p.first.split("|").find { c -> c == tmp }?.let{
-                return p.second
-            }
-        }
+        for ((k, v) in alphabet) { k.split("|").find { it == tmp }?.let{ return v } }
         throw IllegalArgumentException("Unknown character: $character")
     }
 
     override fun decode(character: String): String {
-        alphabet.forEach { p ->
-            p.takeIf { p.second == character }?.let {
-                return p.first.split("|")[0]
-            }
-
-        }
+        for ((k, v) in alphabet) { if (v == character) return k.split("|")[0] }
         throw IllegalArgumentException("Unknown character: $character")
     }
 }
