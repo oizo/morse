@@ -43,4 +43,10 @@ class MorseAlphabetTest {
         MorseAlphabet().decode("")
     }
 
+    @Test(expected = IllegalArgumentException::class)
+    fun decodeInvalidString() {
+        // sos
+        MorseAlphabet().decode("···−−−···")
+    }
+
 }

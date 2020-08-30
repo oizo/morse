@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/morseText"
+        android:id="@+id/morseCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/morse_text"
@@ -26,5 +26,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/morseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/morse_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

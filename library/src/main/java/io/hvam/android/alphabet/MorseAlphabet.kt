@@ -3,7 +3,12 @@ package io.hvam.android.alphabet
 import java.util.*
 
 
-class MorseAlphabet: Alphabet {
+class MorseAlphabet: Alphabet<String, String> {
+
+    companion object {
+        const val DOT = "·"
+        const val DASH = "−"
+    }
 
     private val alphabet = mapOf(
             // Letters

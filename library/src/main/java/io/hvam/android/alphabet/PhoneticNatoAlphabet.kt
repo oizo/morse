@@ -4,7 +4,7 @@ import java.util.*
 
 class PhoneticNatoAlphabet private constructor(
         private val alphabet: Map<String, String>
-): Alphabet {
+): Alphabet<String, String> {
 
     companion object {
 

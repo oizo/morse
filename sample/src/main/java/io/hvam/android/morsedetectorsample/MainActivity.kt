@@ -8,30 +8,30 @@ import android.widget.TextView
 import io.hvam.android.morse.MorseGestureDetector
 import io.hvam.android.morse.MorseSymbol
 import io.hvam.android.morse.MorseTimer
-import io.hvam.android.morse.impl.BinaryConverter
-import io.hvam.android.morse.impl.MorseTimerImpl
-import io.hvam.android.morse.impl.StringConverter
+import io.hvam.android.morse.impl.MorseTimerStrict
+import io.hvam.android.morse.impl.DotDashConverter
+import io.hvam.android.morse.impl.MorseSymbolAlphabet
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val binaryCallback = object : (MorseSymbol) -> Unit {
-        val converter = BinaryConverter()
+    private val dotDashConverter = DotDashConverter()
+    private val alphabet = MorseSymbolAlphabet()
+
+    private val callback = object : (MorseSymbol) -> Unit {
+        val symbols = mutableListOf<MorseSymbol>()
         override fun invoke(symbol: MorseSymbol) {
-            val s = converter.convert(symbol).joinToString("", "", "")
-            morseText.append(s)
+            symbols.add(symbol)
+            val s = dotDashConverter.decode(symbol)
+            morseCode.append(s)
+            if (symbol == MorseSymbol.LETTER || symbol == MorseSymbol.WORD) {
+                morseText.text = alphabet.decode(symbols)
+            }
         }
     }
-    private val stringCallback = object : (MorseSymbol) -> Unit {
-        val converter = StringConverter(letter = " ", word = "\n")
-        override fun invoke(symbol: MorseSymbol) {
-            val s = converter.convert(symbol)
-            morseText.append(s)
-        }
-    }
-    private val timer = MorseTimerImpl()
-    private val gestureDetector = MorseGestureDetector(timer, stringCallback)
+
+    private val timer = MorseTimerStrict(autoEndWord = true, callback = callback)
     private lateinit var nextRunner: NextRunner
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         nextRunner = NextRunner(timer, morseNext)
-        fab.setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }
+        fab.setOnTouchListener(MorseGestureDetector(timer))
     }
 
     override fun onStart() {
         super.onStart()
         nextRunner.start()
-        morseText.text = getString(R.string.morse_text)
+        morseCode.text = getString(R.string.morse_text)
     }
 
     override fun onStop() {
@@ -64,7 +64,7 @@ class NextRunner(
         const val INTERVAL = 16L
     }
 
-    private val converter = StringConverter(letter = "letter", word = "word")
+    private val converter = DotDashConverter(letter = "letter", word = "word")
     private val handler = Handler(Looper.getMainLooper())
 
     fun start() {
@@ -77,7 +77,7 @@ class NextRunner(
 
     override fun run() {
         val symbol = timer.next()
-        val text = converter.convert(symbol)
+        val text = converter.decode(symbol)
         textView.text = textView.resources.getString(R.string.morse_next, text)
         handler.postDelayed(this, INTERVAL)
     }
