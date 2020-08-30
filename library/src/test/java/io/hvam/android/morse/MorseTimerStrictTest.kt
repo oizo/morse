@@ -4,11 +4,11 @@ import io.hvam.android.morse.impl.MorseTimerStrict
 import org.junit.Assert.*
 import org.junit.Test
 
-class MorseTimerImplTest {
+class MorseTimerStrictTest {
 
     private val mockTimeUnit = 10L
     private val mockCallback: (MorseSymbol) -> Unit = {}
-    private val sut = MorseTimerStrict(mockTimeUnit, false, mockCallback)
+    private val sut = MorseTimerStrict(mockTimeUnit, mockCallback)
 
     @Test(expected = IllegalStateException::class)
     fun testDoubleActivate() {

@@ -18,20 +18,24 @@ class MainActivity : AppCompatActivity() {
 
     private val dotDashConverter = DotDashConverter()
     private val alphabet = MorseSymbolAlphabet()
-
-    private val callback = object : (MorseSymbol) -> Unit {
-        val symbols = mutableListOf<MorseSymbol>()
-        override fun invoke(symbol: MorseSymbol) {
-            symbols.add(symbol)
-            val s = dotDashConverter.decode(symbol)
-            morseCode.append(s)
-            if (symbol == MorseSymbol.LETTER || symbol == MorseSymbol.WORD) {
-                morseText.text = alphabet.decode(symbols)
-            }
+    private val symbols = mutableListOf<MorseSymbol>()
+    private val handler = Handler()
+    private val updateWord = Runnable {
+        morseText.text = alphabet.decode(symbols)
+    }
+    private val callback: (MorseSymbol) -> Unit = {
+        handler.removeCallbacks(updateWord)
+        symbols.add(it)
+        val s = dotDashConverter.decode(it)
+        morseCode.append(s)
+        if (it == MorseSymbol.LETTER || it == MorseSymbol.WORD) {
+            updateWord.run()
+        } else {
+            handler.postDelayed(updateWord, timer.timeWord)
         }
     }
 
-    private val timer = MorseTimerStrict(autoEndWord = true, callback = callback)
+    private val timer = MorseTimerStrict(callback = callback)
     private lateinit var nextRunner: NextRunner
 
     override fun onCreate(savedInstanceState: Bundle?) {
