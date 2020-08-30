@@ -1,12 +1,11 @@
 package io.hvam.android.morse
 
-
 /**
  * Splits a [List], into a multidimensional [List]. The split will be performed
  * whenever [split] is true. If [include] is true the element where the split
  * occurs will be included at the end of the current.
  */
-fun <T, R: List<List<T>>> List<T>.split(include: Boolean = false, split: (T) -> Boolean): R {
+fun <T, R : List<List<T>>> List<T>.split(include: Boolean = false, split: (T) -> Boolean): R {
     return split(mutableListOf(), include, split) as R
 }
 
@@ -15,7 +14,7 @@ fun <T, R: List<List<T>>> List<T>.split(include: Boolean = false, split: (T) -> 
  * whenever [split] is true. If [include] is true the element where the split occurs will be included
  * at the end of the current.
  */
-fun <T, R: MutableList<List<T>>> List<T>.split(buffer: R, include: Boolean = false, split: (T) -> Boolean): R {
+fun <T, R : MutableList<List<T>>> List<T>.split(buffer: R, include: Boolean = false, split: (T) -> Boolean): R {
     var piece = mutableListOf<T>()
     forEach {
         when (split.invoke(it)) {

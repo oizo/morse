@@ -1,8 +1,9 @@
 package io.hvam.android.morse
 
 import io.hvam.android.morse.impl.MorseTimerStrict
-import org.junit.Assert.*
 import org.junit.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class MorseTimerStrictTest {
 
@@ -67,7 +68,7 @@ class MorseTimerStrictTest {
 
         // Dot slow
         sut.activate()
-        Thread.sleep(mockTimeUnit-5)
+        Thread.sleep(mockTimeUnit - 5)
         assertEquals(MorseSymbol.DOT, sut.deactivate())
 
         // Dash quick
@@ -85,7 +86,5 @@ class MorseTimerStrictTest {
         assertEquals(MorseSymbol.WORD, sut.activate())
 
         assertEquals(MorseSymbol.DOT, sut.deactivate())
-
     }
-
 }

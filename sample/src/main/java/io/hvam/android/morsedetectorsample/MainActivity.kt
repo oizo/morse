@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import io.hvam.android.morse.MorseGestureDetector
 import io.hvam.android.morse.MorseSymbol
 import io.hvam.android.morse.MorseTimer
-import io.hvam.android.morse.impl.MorseTimerStrict
 import io.hvam.android.morse.impl.DotDashConverter
 import io.hvam.android.morse.impl.MorseSymbolAlphabet
+import io.hvam.android.morse.impl.MorseTimerStrict
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -56,13 +56,12 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
         nextRunner.stop()
     }
-
 }
 
 class NextRunner(
-        private val timer: MorseTimer,
-        private val textView: TextView
-): Runnable {
+    private val timer: MorseTimer,
+    private val textView: TextView
+) : Runnable {
 
     companion object {
         const val INTERVAL = 16L

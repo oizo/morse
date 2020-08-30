@@ -1,8 +1,7 @@
 package io.hvam.android.alphabet
 
 import org.junit.Test
-
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class PhoneticNatoAlphabetTest {
 
@@ -24,5 +23,4 @@ class PhoneticNatoAlphabetTest {
         assertEquals("ørnulf", PhoneticNatoAlphabet.norwegianCivilian().encode("ø"))
         assertEquals("østen", PhoneticNatoAlphabet.norwegianMilitary().encode("ø"))
     }
-
 }

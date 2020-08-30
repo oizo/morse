@@ -1,8 +1,8 @@
 package io.hvam.android.alphabet
 
 import org.junit.Test
-
-import org.junit.Assert.*
+import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 class MorseAlphabetTest {
 
@@ -48,5 +48,4 @@ class MorseAlphabetTest {
         // sos
         MorseAlphabet().decode("···−−−···")
     }
-
 }

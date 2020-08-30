@@ -1,8 +1,7 @@
 package io.hvam.android.alphabet
 
 import org.junit.Test
-
-import org.junit.Assert.*
+import kotlin.test.assertEquals
 
 class AlphabetChainTest {
 
@@ -17,5 +16,4 @@ class AlphabetChainTest {
         val phoneticEncode = PhoneticNatoAlphabet.danish().encode(morseDecode)
         assertEquals(expected, phoneticEncode)
     }
-
 }

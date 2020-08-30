@@ -1,15 +1,15 @@
 package io.hvam.android.morse.impl
 
-import io.hvam.android.morse.MorseSymbolConverter
 import io.hvam.android.morse.MorseSymbol
+import io.hvam.android.morse.MorseSymbolConverter
 
 open class StringConverter(
-        private val dot: String = "1",
-        private val dash: String = "111",
-        private val charGap: String = "0",
-        private val letter: String = "000",
-        private val word: String = "0000000"
-): MorseSymbolConverter {
+    private val dot: String = "1",
+    private val dash: String = "111",
+    private val charGap: String = "0",
+    private val letter: String = "000",
+    private val word: String = "0000000"
+) : MorseSymbolConverter {
 
     /**
      * // Sos must return in binary form
@@ -32,8 +32,7 @@ open class StringConverter(
     override fun decode(symbol: MorseSymbol): String = symbol.toMorseString()
 
     override fun decode(symbol: List<MorseSymbol>): String =
-            symbol.joinToString("", "", "") { it.toMorseString() }
-
+        symbol.joinToString("", "", "") { it.toMorseString() }
 
     private fun MorseSymbol.toMorseString() = when (this) {
         MorseSymbol.DOT -> dot
@@ -42,5 +41,4 @@ open class StringConverter(
         MorseSymbol.LETTER -> letter
         MorseSymbol.WORD -> word
     }
-
 }

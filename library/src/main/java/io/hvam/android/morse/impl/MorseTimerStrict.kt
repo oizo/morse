@@ -4,8 +4,8 @@ import io.hvam.android.morse.MorseSymbol
 import io.hvam.android.morse.MorseTimer
 
 class MorseTimerStrict(
-        timeUnit: Long = 250L,
-        private val callback: (MorseSymbol) -> Unit
+    timeUnit: Long = 250L,
+    private val callback: (MorseSymbol) -> Unit
 ) : MorseTimer {
 
     val timeDot = timeUnit * 1
@@ -15,7 +15,7 @@ class MorseTimerStrict(
     private var down = 0L
     private var up = 0L
 
-    override fun activate(): MorseSymbol? = when(active) {
+    override fun activate(): MorseSymbol? = when (active) {
         true -> throw IllegalStateException("MorseTimer must be deactivated before activating.")
         false -> {
             down = System.currentTimeMillis()
@@ -24,7 +24,7 @@ class MorseTimerStrict(
         }
     }
 
-    override fun deactivate(): MorseSymbol = when(active) {
+    override fun deactivate(): MorseSymbol = when (active) {
         true -> {
             up = System.currentTimeMillis()
             active = false
@@ -34,11 +34,11 @@ class MorseTimerStrict(
     }
 
     override fun next(): MorseSymbol =
-            if (active) {
-                calcUp(System.currentTimeMillis())
-            } else {
-                calcDown(System.currentTimeMillis()) ?: MorseSymbol.DOT
-            }
+        if (active) {
+            calcUp(System.currentTimeMillis())
+        } else {
+            calcDown(System.currentTimeMillis()) ?: MorseSymbol.DOT
+        }
 
     private fun calcDown(down: Long): MorseSymbol? = if (up > 0L) {
         val delta = down - up
@@ -50,6 +50,5 @@ class MorseTimerStrict(
     } else null
 
     private fun calcUp(up: Long): MorseSymbol =
-            if (up - down < timeDot) MorseSymbol.DOT else MorseSymbol.DASH
-
+        if (up - down < timeDot) MorseSymbol.DOT else MorseSymbol.DASH
 }

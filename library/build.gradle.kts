@@ -27,6 +27,8 @@ dependencies {
     testImplementation(Dependencies.mockito.mockito)
     testImplementation(Dependencies.mockito.mockitoInline)
     testImplementation(Dependencies.mockito.mockitokotlin2)
+    testImplementation(Dependencies.kotlin.junit)
+    androidTestImplementation(Dependencies.androidx.test.junit)
     androidTestImplementation(Dependencies.androidx.test.runner)
     androidTestImplementation(Dependencies.androidx.test.espresso.core)
 }

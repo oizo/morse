@@ -25,7 +25,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
-
 }
 
 dependencies {
@@ -36,6 +35,8 @@ dependencies {
     implementation(Dependencies.androidx.constraintlayout)
     implementation(Dependencies.google.material)
     testImplementation(Dependencies.junit)
+    testImplementation(Dependencies.kotlin.junit)
+    androidTestImplementation(Dependencies.androidx.test.junit)
     androidTestImplementation(Dependencies.androidx.test.runner)
     androidTestImplementation(Dependencies.androidx.test.espresso.core)
 }

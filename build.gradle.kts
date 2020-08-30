@@ -8,6 +8,14 @@ buildscript {
     }
 }
 
+plugins {
+    id(Plugins.ktlint) version Versions.ktlint
+}
+
+subprojects {
+    apply(plugin = Plugins.ktlint)
+}
+
 allprojects {
     repositories {
         addRepos(this)
