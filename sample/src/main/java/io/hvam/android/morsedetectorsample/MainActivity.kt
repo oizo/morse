@@ -3,8 +3,8 @@ package io.hvam.android.morsedetectorsample
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import io.hvam.android.morse.MorseGestureDetector
 import io.hvam.android.morse.MorseSymbol
 import io.hvam.android.morse.MorseTimer
