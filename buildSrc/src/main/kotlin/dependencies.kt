@@ -29,7 +29,6 @@ object Versions {
     const val timber = "4.7.1"
     const val ktlint = "9.3.0"
     const val google_material = "1.3.0-alpha02"
-    const val markhor = "1.0.8"
 
 }
 
@@ -54,7 +53,6 @@ object Dependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     val mockito = Mockito
-    val markhor = "com.shopgun.android:utils:${Versions.markhor}"
 }
 
 object Kotlin {

@@ -21,8 +21,8 @@ android {
 
 dependencies {
     implementation(Dependencies.kotlin.stdlib_jdk8)
-    implementation(Dependencies.markhor)
     implementation(Dependencies.androidx.ktx)
+    implementation(Dependencies.timber)
     testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockito.mockito)
     testImplementation(Dependencies.mockito.mockitoInline)

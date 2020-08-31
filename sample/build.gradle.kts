@@ -30,6 +30,7 @@ android {
 dependencies {
     implementation(project(":library"))
     implementation(Dependencies.kotlin.stdlib_jdk8)
+    implementation(Dependencies.timber)
     implementation(Dependencies.androidx.ktx)
     implementation(Dependencies.androidx.appcompat)
     implementation(Dependencies.androidx.constraintlayout)
