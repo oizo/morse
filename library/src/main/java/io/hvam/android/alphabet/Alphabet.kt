@@ -1,18 +1,28 @@
 package io.hvam.android.alphabet
 
 /**
- * Alphabet is an interface for handling encoding and decoding of various UTF-8 characters, and
- * strings. The nature of each alphabet in implementation specific.
+ * Alphabet defined methods for encoding and decoding symbols between alphabets.
+ *
+ * An example could be the encoding and decoding between the latin alphabet,
+ * to the phonetic alphabet, where we can define the actions as:
+ *
+ *  - [encode]: a -> alfa, and vice versa
+ *  - [decode]: alfa -> a
+ *
+ * An [Alphabet] must not translate or interpret the symbols.
+ *
+ * @param D a decoded symbol
+ * @param E an encoded symbol
  */
-interface Alphabet<T, R> {
+interface Alphabet<E, D> {
 
     /**
-     * Encode a string (usually a character) from one alphabet to another.
+     * Encode a [symbol] from one alphabet to another.
      */
-    fun encode(character: R): T
+    fun encode(symbol: D): E
 
     /**
-     * Decode a string (usually a character) from one alphabet to another.
+     * Decode a [symbol] from one alphabet to another.
      */
-    fun decode(character: T): R
+    fun decode(symbol: E): D
 }

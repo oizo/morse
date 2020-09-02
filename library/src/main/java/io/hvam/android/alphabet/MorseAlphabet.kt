@@ -1,7 +1,14 @@
 package io.hvam.android.alphabet
 
+import io.hvam.android.alphabet.MorseAlphabet.Companion.DASH
+import io.hvam.android.alphabet.MorseAlphabet.Companion.DOT
 import java.util.Locale
 
+/**
+ * [MorseAlphabet] provides a mapping between the [latin alphabet](https://en.wikipedia.org/wiki/Latin_alphabet)
+ * , and [morse code alphabet](https://en.wikipedia.org/wiki/Morse_code). Where the latin alphabet
+ * characters are defined from UTF-8, and the morse code alphabet is encoded in UTF-8 as [DOT] and [DASH]
+ */
 class MorseAlphabet : Alphabet<String, String> {
 
     companion object {

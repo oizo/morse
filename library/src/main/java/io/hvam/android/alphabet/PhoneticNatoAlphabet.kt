@@ -2,6 +2,11 @@ package io.hvam.android.alphabet
 
 import java.util.Locale
 
+/**
+ * [MorseAlphabet] provides a mapping between the [latin alphabet](https://en.wikipedia.org/wiki/Latin_alphabet)
+ * , and [NATO phonetic alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet). Where the latin alphabet
+ * characters are defined from UTF-8, and the NATO phonetic alphabet is encoded as strings in in UTF-8.
+ */
 class PhoneticNatoAlphabet private constructor(
     private val alphabet: Map<String, String>
 ) : Alphabet<String, String> {
