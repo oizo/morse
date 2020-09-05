@@ -1,7 +1,7 @@
 package io.hvam.android.morse
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class MorseExtensionsKtTest {
 

@@ -1,8 +1,8 @@
 package io.hvam.android.morse.impl
 
 import io.hvam.android.morse.MorseSymbol
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class DotDashConverterTest {
 
@@ -24,12 +24,13 @@ class DotDashConverterTest {
 
     @Test
     fun testDecodeList() {
-        val tmp = listOf(MorseSymbol.DOT,
-                MorseSymbol.DASH,
-                MorseSymbol.CHAR_GAP,
-                MorseSymbol.LETTER,
-                MorseSymbol.WORD)
+        val tmp = listOf(
+            MorseSymbol.DOT,
+            MorseSymbol.DASH,
+            MorseSymbol.CHAR_GAP,
+            MorseSymbol.LETTER,
+            MorseSymbol.WORD
+        )
         assertEquals("·−  / ", sut.decode(tmp))
     }
-
 }

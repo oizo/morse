@@ -11,13 +11,13 @@ import org.junit.Test
 
 class MorseGestureDetectorTest {
 
-    private val mockTimer = mock<MorseTimer>{}
+    private val mockTimer = mock<MorseTimer> {}
     private val sut = MorseGestureDetector(mockTimer)
 
     @Test
     fun testTouch() {
-        val mockView = mock<View>{ }
-        val mockEvent = mock<MotionEvent>{ }
+        val mockView = mock<View> { }
+        val mockEvent = mock<MotionEvent> { }
         val spy = spy(sut)
         spy.onTouch(mockView, mockEvent)
         verify(spy).onTouchEvent(mockEvent)
@@ -46,5 +46,4 @@ class MorseGestureDetectorTest {
         sut.onTouchEvent(null)
         verifyZeroInteractions(mockTimer)
     }
-
 }
