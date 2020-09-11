@@ -1,4 +1,4 @@
-package io.hvam.android.morsedetectorsample
+package io.hvam.android.morse.sample
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

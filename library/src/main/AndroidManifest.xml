@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.hvam.android.morsedetector"/>
+<manifest package="io.hvam.android.morse"/>

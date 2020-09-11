@@ -1,4 +1,4 @@
-package io.hvam.android.morsedetectorsample
+package io.hvam.android.morse.sample
 
 import android.os.Bundle
 import android.os.Handler

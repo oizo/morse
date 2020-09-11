@@ -1,4 +1,4 @@
-package io.hvam.android.morsedetectorsample
+package io.hvam.android.morse.sample
 
 import org.junit.Test
 import kotlin.test.assertEquals

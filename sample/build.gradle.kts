@@ -7,7 +7,7 @@ plugins {
 android {
     compileSdkVersion(AndroidBuild.compileSdkVersion)
     defaultConfig {
-        applicationId = "io.hvam.android.morsedetectorsample"
+        applicationId = "io.hvam.android.morse.sample"
         minSdkVersion(AndroidBuild.minSdkVersion)
         targetSdkVersion(AndroidBuild.targetSdkVersion)
         versionCode = versionCode()
