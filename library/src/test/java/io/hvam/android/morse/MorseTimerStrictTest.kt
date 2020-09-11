@@ -7,7 +7,7 @@ import kotlin.test.assertNull
 
 class MorseTimerStrictTest {
 
-    private val mockTimeUnit = 10L
+    private val mockTimeUnit = 20L
     private val mockCallback: (MorseSymbol) -> Unit = {}
     private val sut = MorseTimerStrict(mockTimeUnit, mockCallback)
 

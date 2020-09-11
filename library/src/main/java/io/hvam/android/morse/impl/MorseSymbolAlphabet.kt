@@ -23,7 +23,7 @@ class MorseSymbolAlphabet(
     }
 
     override fun decode(symbols: List<MorseSymbol>): String =
-        symbols.split { it == MorseSymbol.WORD }.joinToString(S, E, E) { word ->
+        symbols.split { it == MorseSymbol.WORD }.joinToString(E, E, E) { word ->
             word.split { it == MorseSymbol.LETTER }.joinToString(E, E, S) { letter ->
                 alphabet.decode(converter.decode(letter))
             }
