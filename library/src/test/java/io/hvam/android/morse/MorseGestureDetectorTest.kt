@@ -29,7 +29,7 @@ class MorseGestureDetectorTest {
             on { actionMasked } doReturn MotionEvent.ACTION_DOWN
         }
         sut.onTouchEvent(event)
-        verify(mockTimer).deactivate()
+        verify(mockTimer).activate()
     }
 
     @Test
@@ -38,7 +38,7 @@ class MorseGestureDetectorTest {
             on { actionMasked } doReturn MotionEvent.ACTION_UP
         }
         sut.onTouchEvent(event)
-        verify(mockTimer).activate()
+        verify(mockTimer).deactivate()
     }
 
     @Test
